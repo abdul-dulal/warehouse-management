@@ -1,16 +1,10 @@
 import React, { useEffect, useState } from "react";
+import useAllProduct from "./Hooks/useAllProduct";
 import Product from "./Product";
 const axios = require("axios");
 
 const Products = () => {
-  const [products, setProduct] = useState([]);
-  useEffect(() => {
-    const url = `http://localhost:4000/product`;
-    axios
-      .get(url)
-      .then((response) => setProduct(response.data))
-      .catch((error) => console.log(error));
-  }, []);
+  const [products] = useAllProduct();
   return (
     <div className="container mx-auto">
       <h3 className="text-center text-black text-2xl">LEGAL PRACTICE AREAS</h3>

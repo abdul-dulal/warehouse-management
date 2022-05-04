@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 const Inventory = () => {
   const { id } = useParams();
@@ -60,7 +60,7 @@ const Inventory = () => {
         <form onSubmit={handleStock}>
           <div className="mb-6">
             <label className="block mb-2 text-2xl font-medium text-gray-900 dark:text-gray-300">
-              Stock
+              Add Stock
             </label>
             <input
               type="number"
@@ -92,12 +92,20 @@ const Inventory = () => {
               <p>Price : ${singleProduct.price}</p>
               <p className="my-3">Quantity : {singleProduct.quantity}</p>
             </div>
-            <button
-              onClick={handleDeliverd}
-              className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            >
-              Delivered
-            </button>
+            <div className="flex ">
+              <button
+                onClick={handleDeliverd}
+                className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              >
+                Delivered
+              </button>
+              <Link
+                to={"/inventory"}
+                className="inline-flex  ml-6 items-center py-4 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              >
+                Manage Inventory
+              </Link>
+            </div>
           </div>
         </div>
       </div>

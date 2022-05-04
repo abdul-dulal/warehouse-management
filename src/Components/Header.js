@@ -35,6 +35,11 @@ const Header = () => {
               </Link>
             </li>
             <li>
+              <Link to="/inventory" className="text-xl ml-4">
+                ManageInventory
+              </Link>
+            </li>
+            <li>
               <Link to="/login" className="text-xl ml-4">
                 Login
               </Link>
