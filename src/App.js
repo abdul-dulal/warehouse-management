@@ -1,16 +1,24 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import Header from "./Components/Header";
+import Inventory from "./Components/Inventory";
+import Home from "./Components/pages/Home";
+import Login from "./Components/pages/Login";
+import Signup from "./Components/pages/Signup";
 
 function App() {
   return (
-    <div className="App dark:">
-      <h1>https://www.shuafitness.com/</h1>
-      <h1 className="text-xl font-bold underline">Hello world!</h1>
-      <button
-        type="button"
-        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-      >
-        Default
-      </button>
+    // <div className="bg-[#111827]">
+    <div>
+      <Header />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/inventory/:id" element={<Inventory />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
     </div>
   );
 }

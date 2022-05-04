@@ -1,6 +1,6 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
-  content: ["./node_modules/flowbite/**/*.js"],
+  // content: ["./node_modules/flowbite/**/*.js"],
   darkMode: "class",
   theme: {
     extend: {},
