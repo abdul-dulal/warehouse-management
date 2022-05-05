@@ -1,11 +1,15 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import Inventory from "./Components/Inventory";
-import ManageInventory from "./Components/ManageInventory";
+import ManageItem from "./Components/ManageItem";
+import AddItem from "./Components/pages/AddItem";
 import Home from "./Components/pages/Home";
 import Login from "./Components/pages/Login";
+import NotFound from "./Components/pages/NotFound";
 import Signup from "./Components/pages/Signup";
+import RequirAuth from "./Components/RequirAuth";
 
 function App() {
   return (
@@ -16,11 +20,21 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/inventory" element={<ManageInventory />} />
-        <Route path="/inventory/:id" element={<Inventory />} />
+        <Route path="/manageitem" element={<ManageItem />} />
+        <Route
+          path="/inventory/:id"
+          element={
+            <RequirAuth>
+              <Inventory />
+            </RequirAuth>
+          }
+        />
+        <Route path="/additem" element={<AddItem />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

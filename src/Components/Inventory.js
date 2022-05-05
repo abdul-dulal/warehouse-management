@@ -36,11 +36,9 @@ const Inventory = () => {
     const number = parseInt(event.target.number.value);
 
     const newNumber = quantity + number;
-    console.log(typeof newNumber, newNumber);
     const updateNumber = { ...singleProduct, number: newNumber };
     setSingleProduct(updateNumber);
     const url = `http://localhost:4000/user/${id}`;
-    console.log(url);
     fetch(url, {
       method: "PUT",
       headers: {
@@ -57,6 +55,12 @@ const Inventory = () => {
   return (
     <>
       <div className="container mx-auto">
+        <div className="ml-auto w-full">
+          <h1 className="text-center my-3">Manage Inventory</h1>
+          <button className="border-solid border-2 border-sky-500  text-xl m-auto px-4 py-3 ">
+            Add New Item
+          </button>
+        </div>
         <form onSubmit={handleStock}>
           <div className="mb-6">
             <label className="block mb-2 text-2xl font-medium text-gray-900 dark:text-gray-300">
@@ -100,7 +104,7 @@ const Inventory = () => {
                 Delivered
               </button>
               <Link
-                to={"/inventory"}
+                to={"/manageitem"}
                 className="inline-flex  ml-6 items-center py-4 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
                 Manage Inventory

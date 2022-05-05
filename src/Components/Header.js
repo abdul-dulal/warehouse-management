@@ -1,58 +1,46 @@
-import React, { useState } from "react";
+import React from "react";
+import { Container, Nav, Navbar } from "react-bootstrap";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
+import auth from "../Firebase.init";
+import LogOut from "./LogOut";
 
 const Header = () => {
-  let [open, setOpen] = useState(false);
+  const [user, loading, error] = useAuthState(auth);
   return (
-    <>
-      <div className="shadow-mdfixed top-0 left-0 w-full ">
-        <div className="md:flex items-center justify-between bg-white py-4 md:px-10 px-7">
-          <div
-            className="font-bold text-2xl cursor-pointer flex items-center font-[Poppins] 
-      text-gray-800"
-          >
-            <span className="text-3xl text-indigo-600 mr-1 pt-2">
-              <ion-icon name="logo-ionic"></ion-icon>
-            </span>
-            Designer
-          </div>
-
-          <div
-            onClick={() => setOpen(!open)}
-            className="text-3xl absolute right-8 top-6 cursor-pointer md:hidden"
-          >
-            <ion-icon name={open ? "close" : "menu"}></ion-icon>
-          </div>
-
-          <ul
-            className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-white  left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${
-              open ? "top-20 " : "top-[-490px]"
-            }`}
-          >
-            <li>
-              <Link to="/home" className="text-xl ml-4">
-                home
-              </Link>
-            </li>
-            <li>
-              <Link to="/inventory" className="text-xl ml-4">
-                ManageInventory
-              </Link>
-            </li>
-            <li>
-              <Link to="/login" className="text-xl ml-4">
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Container>
+        <Navbar.Brand as={Link} to="/">
+          {/* <img src={img} height="30" width={200} alt="" /> */}
+          <h1>hello</h1>
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="mx-auto">
+            <Nav.Link as={Link} to="/">
+              Home
+            </Nav.Link>
+            <Nav.Link as={Link} to="/manageitem">
+              Manage Item
+            </Nav.Link>
+            <Nav.Link as={Link} to="/additem">
+              Add Item
+            </Nav.Link>
+            {user ? (
+              <LogOut />
+            ) : (
+              <Nav.Link as={Link} to="/login">
                 Login
-              </Link>
-            </li>
-            <li>
-              <Link to="/signup" className="text-xl ml-4">
-                Signup
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </>
+              </Nav.Link>
+            )}
+
+            <Nav.Link as={Link} to="/signup">
+              Singup
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
 

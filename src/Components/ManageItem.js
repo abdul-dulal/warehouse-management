@@ -5,17 +5,17 @@ import ManageInv from "./ManageInv";
 const ManageInventory = () => {
   const [products, setProduct] = useAllProduct();
   const handleDelete = (id) => {
-    const proceed = window.confirm("Are you sure   to delete");
-    if (proceed) {
-      console.log("deleting user with id, ", id);
+    const procssed = window.confirm("are you sure to delete");
+    if (procssed) {
       const url = `http://localhost:4000/delete/${id}`;
-      fetch(url)
+      fetch(url, {
+        method: "DELETE",
+      })
         .then((res) => res.json())
         .then((data) => {
           if (data.deletedCount > 0) {
-            console.log("deleted");
-            const remaining = products.filter((product) => product._id !== id);
-            setProduct(remaining);
+            const rest = products.filter((product) => product._id !== id);
+            setProduct(rest);
           }
         });
     }
