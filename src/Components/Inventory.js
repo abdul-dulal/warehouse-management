@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 const Inventory = () => {
   const { id } = useParams();
   const [singleProduct, setSingleProduct] = useState([]);
+  const navigate = useNavigate();
   useEffect(() => {
     const url = `http://localhost:4000/product/${id}`;
     axios.get(url).then((res) => setSingleProduct(res.data));
@@ -55,12 +56,14 @@ const Inventory = () => {
   return (
     <>
       <div className="container mx-auto">
-        <div className="ml-auto w-full">
-          <h1 className="text-center my-3">Manage Inventory</h1>
-          <button className="border-solid border-2 border-sky-500  text-xl m-auto px-4 py-3 ">
-            Add New Item
-          </button>
-        </div>
+        <h1 className="text-center my-3">Manage Inventory</h1>
+        <button
+          onClick={() => navigate("/manageitem")}
+          className="border-solid block border-2 border-sky-500  text-xl m-auto px-4 py-3 "
+        >
+          Add New Item
+        </button>
+
         <form onSubmit={handleStock}>
           <div className="mb-6">
             <label className="block mb-2 text-2xl font-medium text-gray-900 dark:text-gray-300">

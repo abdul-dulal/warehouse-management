@@ -7,6 +7,7 @@ import ManageItem from "./Components/ManageItem";
 import AddItem from "./Components/pages/AddItem";
 import Home from "./Components/pages/Home";
 import Login from "./Components/pages/Login";
+import Myitem from "./Components/pages/Myitem";
 import NotFound from "./Components/pages/NotFound";
 import Signup from "./Components/pages/Signup";
 import RequirAuth from "./Components/RequirAuth";
@@ -30,6 +31,7 @@ function App() {
           }
         />
         <Route path="/additem" element={<AddItem />} />
+        <Route path="/myitem" element={<Myitem />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="*" element={<NotFound />} />

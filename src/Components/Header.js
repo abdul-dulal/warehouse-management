@@ -26,6 +26,9 @@ const Header = () => {
             <Nav.Link as={Link} to="/additem">
               Add Item
             </Nav.Link>
+            <Nav.Link as={Link} to="/myitem">
+              My Item
+            </Nav.Link>
             {user ? (
               <LogOut />
             ) : (
