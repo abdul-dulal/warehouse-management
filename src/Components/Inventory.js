@@ -4,6 +4,7 @@ import axios from "axios";
 const Inventory = () => {
   const { id } = useParams();
   const [singleProduct, setSingleProduct] = useState([]);
+  const [stock, setStock] = useState();
   const navigate = useNavigate();
   useEffect(() => {
     const url = `http://localhost:4000/product/${id}`;

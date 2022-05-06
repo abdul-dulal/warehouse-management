@@ -1,7 +1,10 @@
 import React from "react";
 import { toast, ToastContainer } from "react-toastify";
-
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../Firebase.init";
+import axios from "axios";
 const AddItem = () => {
+  const [user] = useAuthState(auth);
   const handleAdditem = (event) => {
     event.preventDefault();
     const items = {
@@ -11,21 +14,16 @@ const AddItem = () => {
       quantity: event.target.quantity.value,
       supplier: event.target.supplier.value,
       img: event.target.photo.value,
+      email: user.email,
     };
     console.log(items);
-    toast("Successfully added");
-    const url = "http://localhost:4000/additem";
-    fetch(url, {
-      method: "POST", // or 'PUT'
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(items),
-    })
-      .then((response) => response.json())
-      .then((bal) => {
-        console.log("Success:", bal);
-      });
+    axios.post(`http://localhost:4000/additem`, items).then((response) => {
+      const { data } = response;
+      if (data.insertedId) {
+        toast("your order is booked");
+        event.target.reset();
+      }
+    });
   };
 
   return (
@@ -53,20 +51,12 @@ const AddItem = () => {
             <input
               type="text"
               name="description"
-              placeholder="Enter Description"
+              placeholder="Enter description"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
               required
             />
           </div>
-          <div>
-            <input
-              type="text"
-              name="supplier"
-              placeholder="Enter Description"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-              required
-            />
-          </div>
+
           <div>
             <input
               type="number"
@@ -87,9 +77,18 @@ const AddItem = () => {
           </div>
           <div>
             <input
-              type="text"
+              type="number"
               name="quantity"
               placeholder="Enter Quantity"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+              required
+            />
+          </div>
+          <div>
+            <input
+              type="text"
+              name="supplier"
+              placeholder="Enter supplier"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
               required
             />

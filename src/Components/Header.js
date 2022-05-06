@@ -12,7 +12,7 @@ const Header = () => {
       <Container>
         <Navbar.Brand as={Link} to="/">
           {/* <img src={img} height="30" width={200} alt="" /> */}
-          <h1>hello</h1>
+          <h1>JWT</h1>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -23,12 +23,16 @@ const Header = () => {
             <Nav.Link as={Link} to="/manageitem">
               Manage Item
             </Nav.Link>
-            <Nav.Link as={Link} to="/additem">
-              Add Item
-            </Nav.Link>
-            <Nav.Link as={Link} to="/myitem">
-              My Item
-            </Nav.Link>
+            {user && (
+              <>
+                <Nav.Link as={Link} to="/additem">
+                  Add Item
+                </Nav.Link>
+                <Nav.Link as={Link} to="/myitem">
+                  My Item
+                </Nav.Link>
+              </>
+            )}
             {user ? (
               <LogOut />
             ) : (

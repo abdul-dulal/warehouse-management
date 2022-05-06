@@ -1,13 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import auth from "../../Firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
+import axios from "axios";
 const Myitem = () => {
-  const [wonProduct, setWonProduct] = useState([]);
+  const [myItem, setMyItem] = useState([]);
   const [user] = useAuthState(auth);
-  const ulr = ``;
+
+  useEffect(() => {
+    const email = user?.email;
+    const getOrder = async () => {
+      const url = `http://localhost:4000/myitem?email=${email}`;
+      const { data } = await axios.get(url);
+      setMyItem(data);
+    };
+    getOrder();
+  }, [user]);
+
   return (
     <div>
-      <h1>hello</h1>
+      <h1>hello {myItem.length}</h1>
     </div>
   );
 };

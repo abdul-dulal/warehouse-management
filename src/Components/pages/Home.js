@@ -1,5 +1,6 @@
 import React from "react";
 import Banner from "../Banner";
+import MiniSlider from "../MiniSlider";
 import Products from "../Products";
 
 import Slider from "../Slider";
