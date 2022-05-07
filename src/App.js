@@ -5,6 +5,7 @@ import Header from "./Components/Header";
 import Inventory from "./Components/Inventory";
 import ManageItem from "./Components/ManageItem";
 import AddItem from "./Components/pages/AddItem";
+import Blogs from "./Components/pages/Blogs";
 import Home from "./Components/pages/Home";
 import Login from "./Components/pages/Login";
 import Myitem from "./Components/pages/Myitem";
@@ -31,6 +32,7 @@ function App() {
           }
         />
         <Route path="/additem" element={<AddItem />} />
+        <Route path="/blogs" element={<Blogs />} />
         <Route path="/myitem" element={<Myitem />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />

@@ -8,6 +8,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import auth from "../../Firebase.init";
 import Loading from "../Loading";
+import axios from "axios";
 
 const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
@@ -20,11 +21,14 @@ const Login = () => {
 
   let from = location.state?.from?.pathname || "/";
   let email;
-  const handleLogin = (event) => {
+  const handleLogin = async (event) => {
     event.preventDefault();
     email = event.target.email.value;
     const password = event.target.password.value;
-    signInWithEmailAndPassword(email, password);
+    await signInWithEmailAndPassword(email, password);
+    const { data } = await axios.post(`http://localhost:4000/login`, { email });
+    localStorage.setItem("accessToken", data);
+    navigate(from, { replace: true });
   };
   const singinGoogle = () => {
     signInWithGoogle();
@@ -36,7 +40,7 @@ const Login = () => {
     return <Loading />;
   }
   if (user || user2) {
-    navigate(from, { replace: true });
+    // navigate(from, { replace: true });
   }
   const resetPassword = async () => {
     await sendPasswordResetEmail(email);

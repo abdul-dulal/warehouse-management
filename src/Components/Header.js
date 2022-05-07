@@ -6,7 +6,7 @@ import auth from "../Firebase.init";
 import LogOut from "./LogOut";
 
 const Header = () => {
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
@@ -20,11 +20,12 @@ const Header = () => {
             <Nav.Link as={Link} to="/">
               Home
             </Nav.Link>
-            <Nav.Link as={Link} to="/manageitem">
-              Manage Item
-            </Nav.Link>
+
             {user && (
               <>
+                <Nav.Link as={Link} to="/manageitem">
+                  Manage Item
+                </Nav.Link>
                 <Nav.Link as={Link} to="/additem">
                   Add Item
                 </Nav.Link>
@@ -33,6 +34,10 @@ const Header = () => {
                 </Nav.Link>
               </>
             )}
+            <Nav.Link as={Link} to="/blogs">
+              Blogs
+            </Nav.Link>
+
             {user ? (
               <LogOut />
             ) : (
