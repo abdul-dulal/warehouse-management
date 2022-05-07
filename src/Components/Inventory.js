@@ -57,10 +57,10 @@ const Inventory = () => {
   return (
     <>
       <div className="container mx-auto">
-        <h1 className="text-center my-3">Manage Inventory</h1>
+        <h1 className="text-center my-3 text-white">Manage Inventory</h1>
         <button
           onClick={() => navigate("/manageitem")}
-          className="border-solid block border-2 border-sky-500  text-xl m-auto px-4 py-3 "
+          className="border-solid block border-2 border-sky-500 text-white text-xl m-auto px-4 py-3 "
         >
           Add New Item
         </button>

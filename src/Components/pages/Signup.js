@@ -13,7 +13,7 @@ const Signup = () => {
 
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
-  const [signInWithGoogle, loading2, error2] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, user2, loading2, error2] = useSignInWithGoogle(auth);
   const navigate = useNavigate();
   const handleSignup = (event) => {
     event.preventDefault();
@@ -32,43 +32,43 @@ const Signup = () => {
   if (error || error2) {
     return <p className="text-red-700"> {error?.message}</p>;
   }
-  if (user) {
+  if (user || user2) {
     navigate("/home");
     toast("login success ");
   }
   return (
-    <div className="container mx-auto grid grid-cols-2">
-      <div className="p-4 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 lg:p-8 dark:bg-gray-800 dark:border-gray-700">
+    <div className="container mx-auto grid grid-cols-2 my-7">
+      <div className="p-4 max-w-sm bg-[#1F2937] rounded-lg border border-gray-200 shadow-md sm:p-6 lg:p-8 dark:bg-gray-800 dark:border-gray-700">
         <form className="space-y-6" onSubmit={handleSignup}>
-          <h5 className="text-xl font-medium text-gray-900 dark:text-white">
-            SignUp
+          <h5 className="text-xl font-medium text-[#CBCDD6] dark:text-white">
+            SignUp Our platform
           </h5>
           <div>
-            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+            <label className="block mb-2 text-xl font-medium text-[#CBCDD6] dark:text-gray-300">
               Your Name
             </label>
             <input
               type="text"
               name="name"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+              className="bg-gray-50 border border-gray-300  text-xl rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
               placeholder="Your Name"
             />
           </div>
           <div>
-            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+            <label className="block mb-2 text-xl font-medium text-[#CBCDD6]  dark:text-gray-300">
               Your email
             </label>
             <input
               type="email"
               name="email"
               id="email"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+              className="bg-gray-50 border border-gray-300  text-xl rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
               placeholder="name@company.com"
               required
             />
           </div>
           <div>
-            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+            <label className="block mb-2  font-medium text-[#CBCDD6]  text-xl dark:text-gray-300">
               Your password
             </label>
             <input
@@ -76,7 +76,7 @@ const Signup = () => {
               name="password"
               id="password"
               placeholder="••••••••"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+              className="bg-gray-50 border border-gray-300  text-xl rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
               required
             />
           </div>
@@ -94,7 +94,7 @@ const Signup = () => {
               </div>
               <label
                 className={`ml-2 text-sm font-medium  ${
-                  agree ? "text-black" : "text-red-700	"
+                  agree ? "text-[#CBCDD6]" : "text-red-700	"
                 }`}
               >
                 Remember me

@@ -15,8 +15,7 @@ import RequirAuth from "./Components/RequirAuth";
 
 function App() {
   return (
-    // <div className="bg-[#111827]">
-    <div>
+    <div className="bg-[#111827]">
       <Header />
 
       <Routes>

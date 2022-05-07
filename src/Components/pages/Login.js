@@ -16,7 +16,7 @@ const Login = () => {
   const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
   const [signInWithGoogle, user2, error2, loading2] = useSignInWithGoogle(auth);
   const navigate = useNavigate();
-
+  let errElement;
   let location = useLocation();
 
   let from = location.state?.from?.pathname || "/";
@@ -34,13 +34,17 @@ const Login = () => {
     signInWithGoogle();
   };
   if (error || error2) {
-    <p className="text-red-700">{error}</p>;
+    errElement = (
+      <p>
+        {error?.message} {error2?.message}
+      </p>
+    );
   }
   if (loading || loading2) {
     return <Loading />;
   }
-  if (user || user2) {
-    // navigate(from, { replace: true });
+  if (user2) {
+    navigate(from, { replace: true });
   }
   const resetPassword = async () => {
     await sendPasswordResetEmail(email);
@@ -49,26 +53,26 @@ const Login = () => {
 
   return (
     <div className="container mx-auto">
-      <div className="p-4 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 lg:p-8 dark:bg-gray-800 dark:border-gray-700">
+      <div className="p-4 max-w-sm #1F2937 rounded-lg border border-gray-200 shadow-md sm:p-6 lg:p-8 dark:bg-gray-800 dark:border-gray-700">
         <form className="space-y-6" onSubmit={handleLogin}>
-          <h5 className="text-xl font-medium text-gray-900 dark:text-white">
+          <h5 className="text-xl font-medium text-white ">
             Sign in to our platform
           </h5>
           <div>
-            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+            <label className="block mb-2 text-xl font-medium text-[#CBCDD6]">
               Your email
             </label>
             <input
               type="email"
               name="email"
               id="email"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+              className="bg-gray-50 border border-gray-300  text-xl rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
               placeholder="name@company.com"
               required
             />
           </div>
           <div>
-            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+            <label className="block mb-2 text-xl font-medium text-[#CBCDD6] dark:text-gray-300">
               Your password
             </label>
             <input
@@ -76,10 +80,11 @@ const Login = () => {
               name="password"
               id="password"
               placeholder="••••••••"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+              className="bg-gray-50 border border-gray-300 text-xl rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
               required
             />
           </div>
+          <p>{errElement}</p>
           <div className="flex items-start">
             <button
               onClick={resetPassword}
@@ -117,7 +122,7 @@ const Login = () => {
             Sign in with Google
           </button>
           <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
-            Not registered?{" "}
+            Not registered?
             <Link
               to="/signup"
               className="text-blue-700 hover:underline dark:text-blue-500"

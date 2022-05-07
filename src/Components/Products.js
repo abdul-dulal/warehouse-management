@@ -8,7 +8,9 @@ const Products = () => {
   let newProduct = products.slice(0, 6);
   return (
     <div className="container mx-auto">
-      <h3 className="text-center text-black text-2xl">LEGAL PRACTICE AREAS</h3>
+      <h3 className="text-center text-black text-2xl text-white my-8 font-bold">
+        Our Products
+      </h3>
       <div className="grid md:grid-cols-3 gap-4">
         {newProduct.map((product) => (
           <Product product={product} key={product._id} />

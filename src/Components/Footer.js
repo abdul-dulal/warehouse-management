@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 // import logo from "../../assets/images/logo-1.png";
 const Footer = () => {
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto mt-12">
       <footer className="p-4 bg-[#1F2937] sm:p-6 dark:bg-gray-800">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
@@ -19,27 +19,24 @@ const Footer = () => {
               </h2>
               <ul className="  p-0">
                 <li className="mb-3">
-                  <Link
-                    to={"/about"}
-                    className=" text-white text-decoration-none "
-                  >
-                    About
+                  <Link to={"/"} className=" text-white text-decoration-none ">
+                    Home
                   </Link>
                 </li>
                 <li className="mb-3">
                   <Link
-                    to={"/blog"}
+                    to={"/blogs"}
                     className=" text-white text-decoration-none "
                   >
-                    Blog
+                    Blogs
                   </Link>
                 </li>
                 <li>
                   <Link
-                    to={"/checkout"}
+                    to={"/login"}
                     className=" text-white text-decoration-none "
                   >
-                    Checkout
+                    Login
                   </Link>
                 </li>
               </ul>

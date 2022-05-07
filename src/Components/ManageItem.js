@@ -23,22 +23,22 @@ const ManageInventory = () => {
   return (
     <div className="container mx-auto">
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 ">
+          <thead className="text-xs text-gray-700 uppercase bg-[#111827] dark:bg-gray-700 dark:text-gray-400">
             <tr>
-              <th scope="col" className=" text-xl px-6 py-3 w-1/5">
+              <th scope="col" className=" text-xl px-6 py-3 w-1/5 text-white">
                 Product
               </th>
-              <th scope="col" className=" text-xl px-6 py-3 w-1/5">
+              <th scope="col" className=" text-xl px-6 py-3 w-1/5 text-white">
                 Price
               </th>
-              <th scope="col" className=" text-xl px-6 py-3 w-1/5">
+              <th scope="col" className=" text-xl px-6 py-3 w-1/5 text-white">
                 Quantity
               </th>
-              <th scope="col" className=" text-xl px-6 py-3 w-1/5">
+              <th scope="col" className=" text-xl px-6 py-3 w-1/5 text-white">
                 Supplier
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="px-6 py-3 ">
                 <span className="sr-only">Edit</span>
               </th>
             </tr>

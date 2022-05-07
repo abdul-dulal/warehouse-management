@@ -14,6 +14,7 @@ const Myitem = () => {
     const email = user?.email;
     const item = async () => {
       const url = `http://localhost:4000/myitem?email=${email}`;
+
       try {
         const { data } = await axios.get(url, {
           headers: {
@@ -33,9 +34,10 @@ const Myitem = () => {
 
   return (
     <div className="container mx-auto">
-      <h1>My Items </h1>
-      <div>
-        <h1>my item: {myItem.length}</h1>
+      <h1 className="text-white text-center my-5">My Items {myItem.length} </h1>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+        {myItem.length >= 0 &&
+          myItem.map((item) => <Item key={item._id} item={item} />)}
       </div>
     </div>
   );

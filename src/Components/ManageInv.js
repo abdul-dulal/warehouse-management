@@ -5,22 +5,22 @@ const ManageInv = ({ product, handleDelete }) => {
 
   return (
     <div>
-      <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+      <div className="relative overflow-x-auto shadow-md sm:rounded-lg ">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <tbody>
-            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+            <tr className="bg-[#111827] border-b dark:bg-gray-800 dark:border-gray-700">
               <th
                 scope="row"
-                className="px-4 py-4  w-1/5 font-medium text-gray-900 dark:text-white whitespace-nowrap"
+                className="px-4 py-4  w-1/5 font-medium text-white text-xl dark:text-white whitespace-nowrap"
               >
                 {name}
               </th>
-              <td className=" px-6 py-3 w-1/5">${price}</td>
-              <td className="px-6 py-3 w-1/5">{quantity}</td>
-              <td className="px-6 py-3 w-1/5">{supplier}</td>
-              <td className="px-6 py-4 text-right w-1/5">
+              <td className=" px-6 py-3 w-1/5 text-xl text-white">${price}</td>
+              <td className="px-6 py-3 w-1/5 text-xl text-white">{quantity}</td>
+              <td className="px-6 py-3 w-1/5 text-xl text-white">{supplier}</td>
+              <td className="px-6 py-4 text-right w-1/5 text-xl text-white">
                 <button
-                  className="text-3xl text-blue-600  "
+                  className="text-3xl text-white "
                   onClick={() => handleDelete(_id)}
                 >
                   <ion-icon name="trash" className=" "></ion-icon>

@@ -1,5 +1,6 @@
 import React from "react";
 import Banner from "../Banner";
+import Brand from "../Brand";
 import MiniSlider from "../MiniSlider";
 import Products from "../Products";
 
@@ -11,7 +12,7 @@ const Home = () => {
       <Slider />
       <Products />
       <Banner />
-      <h1>https://www.shuafitness.com/</h1>;
+      <Brand />
     </div>
   );
 };

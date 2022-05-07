@@ -10,20 +10,20 @@ const Slider = () => {
   return (
     <div>
       <Carousel>
-        <div>
-          <img src={img4} alt="" />
+        <div className="">
+          <img src={img4} alt="" className="   " />
         </div>
-        <div className="relative">
-          <img src={img1} className="" alt="" />
-          <div className="absolute bottom-96 left-52">
+        <div className="relative bg-[rgba(0,0,0,.3)] text-white">
+          <img src={img1} className="opacity-40	" alt="" />
+          <div className="absolute bottom-96 left-52 ">
             <p className="text-xl">
               Maximize your space to reach fitness goals
             </p>
             <h1 className="text-4xl font-bold  ">Tone Your Muscle</h1>
           </div>
         </div>
-        <div>
-          <img src={img2} alt="" />
+        <div className="bg-[rgba(0,0,0,.3)] text-white">
+          <img src={img2} alt="" className="opacity-40" />
           <div className="absolute bottom-96 left-52">
             <p className="text-xl">
               Different from traditional treadmill, offering <br /> a brand new
@@ -32,11 +32,11 @@ const Slider = () => {
             <h2 className="text-4xl font-bold  ">SHUA Curved Treadmill</h2>
           </div>
         </div>
-        <div>
-          <img src={img3} alt="" />
+        <div className="bg-[rgba(0,0,0,.3)] text-white">
+          <img src={img3} alt="" className="opacity-40" />
 
           <div className="absolute bottom-96 left-52">
-            <p className="text-xl">
+            <p className="text-xl text-white">
               Different from traditional treadmill, offering <br /> a brand new
               experience
             </p>
