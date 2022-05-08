@@ -4,6 +4,19 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+## gym-equipment
+# this is warehouse-management webside, user can upload his won product and also do delete product.
+
+# uses technology
+* React js
+* React router-dom
+* React resposive-carousel
+* tailwind
+* flowbite
+* firebase 
+* firebase hooks
+* react toastfy
+
 In the project directory, you can run:
 
 ### `npm start`
