@@ -34,7 +34,7 @@ const ManageInventory = () => {
       </button>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg my-10 ">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 ">
-          <thead className="text-xs text-gray-700 uppercase bg-[#111827] dark:bg-gray-700 dark:text-gray-400">
+          <thead className="text-xs text-gray-700 uppercase bg-[#1F2937] dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" className=" text-xl px-6 py-3 w-1/5 text-white">
                 Product

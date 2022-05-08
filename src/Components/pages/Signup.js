@@ -6,15 +6,17 @@ import {
   useCreateUserWithEmailAndPassword,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import Loading from "../Loading";
 const Signup = () => {
   const [agree, setAgree] = useState(false);
 
   const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   const [signInWithGoogle, user2, loading2, error2] = useSignInWithGoogle(auth);
+
   const navigate = useNavigate();
+  let errorElement;
   const handleSignup = (event) => {
     event.preventDefault();
     const name = event.target.name.value;
@@ -30,7 +32,7 @@ const Signup = () => {
     return <Loading />;
   }
   if (error || error2) {
-    return <p className="text-red-700"> {error?.message}</p>;
+    errorElement = <p className="text-danger">Error: {error?.message}</p>;
   }
   if (user || user2) {
     navigate("/home");
@@ -139,8 +141,8 @@ const Signup = () => {
               Login
             </Link>
           </div>
-          <ToastContainer />
         </form>
+        <p className="text-red-700">{errorElement}</p>
       </div>
     </div>
   );

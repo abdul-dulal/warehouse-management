@@ -11,16 +11,16 @@ import Loading from "../Loading";
 import axios from "axios";
 
 const Login = () => {
-  const [signInWithEmailAndPassword, user, loading, error] =
+  const [signInWithEmailAndPassword, user, error, loading] =
     useSignInWithEmailAndPassword(auth);
   const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
   const [signInWithGoogle, user2, error2, loading2] = useSignInWithGoogle(auth);
   const navigate = useNavigate();
-  let errElement;
+  let errorElement;
   let location = useLocation();
-
   let from = location.state?.from?.pathname || "/";
   let email;
+
   const handleLogin = async (event) => {
     event.preventDefault();
     email = event.target.email.value;
@@ -30,18 +30,16 @@ const Login = () => {
     localStorage.setItem("accessToken", data);
     navigate(from, { replace: true });
   };
+
   const singinGoogle = () => {
     signInWithGoogle();
   };
-  if (error || error2) {
-    errElement = (
-      <p>
-        {error?.message} {error2?.message}
-      </p>
-    );
-  }
+
   if (loading || loading2) {
     return <Loading />;
+  }
+  if (error || error2) {
+    errorElement = <p className="text-danger"> {error?.message}</p>;
   }
   if (user2) {
     navigate(from, { replace: true });
@@ -84,7 +82,7 @@ const Login = () => {
               required
             />
           </div>
-          <p>{errElement}</p>
+          <p>{errorElement}</p>
           <div className="flex items-start">
             <button
               onClick={resetPassword}
@@ -130,7 +128,6 @@ const Login = () => {
               Create account
             </Link>
           </div>
-          <ToastContainer />
         </form>
       </div>
     </div>

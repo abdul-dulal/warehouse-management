@@ -8,7 +8,7 @@ const ManageInv = ({ product, handleDelete }) => {
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg ">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <tbody>
-            <tr className="bg-[#111827] border-b dark:bg-gray-800 dark:border-gray-700">
+            <tr className="bg-[#1F2937]  border-b dark:bg-gray-800 dark:border-gray-700">
               <th
                 scope="row"
                 className="px-4 py-4  w-1/5 font-medium text-white text-xl dark:text-white whitespace-nowrap"

@@ -4,15 +4,18 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../Firebase.init";
 import LogOut from "./LogOut";
+import logo from "../assets/img/logo.png";
 
 const Header = () => {
   const [user] = useAuthState(auth);
+  const handleLogout = () => {
+    localStorage.removeItem("accessToken");
+  };
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
         <Navbar.Brand as={Link} to="/">
-          {/* <img src={img} height="30" width={200} alt="" /> */}
-          <h1>JWT</h1>
+          <img src={logo} height="30" width={200} alt="" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">

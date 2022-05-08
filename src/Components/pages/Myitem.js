@@ -10,11 +10,11 @@ const Myitem = () => {
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
 
+  const email = user?.email;
   useEffect(() => {
-    const email = user?.email;
     const item = async () => {
       const url = `http://localhost:4000/myitem?email=${email}`;
-
+      console.log(url);
       try {
         const { data } = await axios.get(url, {
           headers: {
@@ -22,6 +22,7 @@ const Myitem = () => {
           },
         });
         setMyItem(data);
+        console.log(data);
       } catch (error) {
         if (error.response.status === 401 || error.response.status === 403) {
           signOut(auth);
@@ -30,14 +31,14 @@ const Myitem = () => {
       }
     };
     item();
-  }, [user]);
+  }, [email, navigate]);
 
   return (
     <div className="container mx-auto">
       <h1 className="text-white text-center my-5">My Items {myItem.length} </h1>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-        {myItem.length >= 0 &&
-          myItem.map((item) => <Item key={item._id} item={item} />)}
+        {/* {myItem.length >= 0 &&
+          myItem.map((item) => <Item key={item._id} item={item} />)} */}
       </div>
     </div>
   );

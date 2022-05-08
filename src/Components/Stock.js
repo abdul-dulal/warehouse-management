@@ -6,6 +6,8 @@ import useSingle from "./Hooks/useSingle";
 const Stock = () => {
   const { id } = useParams();
   const [singleProduct, setSingleProduct] = useSingle(id);
+  // const [stock, setStock] = useState();
+  // console.log(stock.quantity);
   let { quantity } = singleProduct;
 
   const [show, setShow] = useState(false);
@@ -18,8 +20,10 @@ const Stock = () => {
     const number = parseInt(event.target.number?.value);
 
     const newNumber = quantity + number;
+
     const updateNumber = { ...singleProduct, number: newNumber };
-    setSingleProduct(updateNumber);
+    console.log(updateNumber.quantity);
+    // setStock(updateNumber);
     const url = `http://localhost:4000/user/${id}`;
     fetch(url, {
       method: "PUT",
@@ -28,10 +32,6 @@ const Stock = () => {
       },
       body: JSON.stringify(updateNumber),
     });
-    // .then((res) => res.json())
-    // .then((data) => {
-    //   console.log("success", data);
-    // });
   };
   return (
     <div>
@@ -45,9 +45,6 @@ const Stock = () => {
         <Modal.Body className="bg-[#111827]">
           <form onSubmit={handleStock}>
             <div className="mb-6">
-              {/* <label className="block mb-2 text-2xl font-medium bg-[#111827] text-white dark:text-gray-300">
-                Stock Product
-              </label> */}
               <input
                 type="number"
                 name="number"

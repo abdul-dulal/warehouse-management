@@ -3,6 +3,7 @@ import { toast, ToastContainer } from "react-toastify";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../Firebase.init";
 import axios from "axios";
+import "react-toastify/dist/ReactToastify.css";
 const AddItem = () => {
   const [user] = useAuthState(auth);
   const handleAdditem = (event) => {
@@ -16,11 +17,11 @@ const AddItem = () => {
       img: event.target.photo.value,
       email: user.email,
     };
-    console.log(items);
+
     axios.post(`http://localhost:4000/additem`, items).then((response) => {
       const { data } = response;
       if (data.insertedId) {
-        toast("your order is booked");
+        toast.success("success fully added");
         event.target.reset();
       }
     });
@@ -100,7 +101,6 @@ const AddItem = () => {
             className="py-2.5 px-5 mr-2 mb-2 text-xl font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gr "
           />
         </form>
-        <ToastContainer />
       </div>
     </div>
   );
