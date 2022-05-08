@@ -13,7 +13,7 @@ const Myitem = () => {
   const email = user?.email;
   useEffect(() => {
     const item = async () => {
-      const url = `http://localhost:4000/myitem?email=${email}`;
+      const url = `https://vast-forest-98609.herokuapp.com/myitem?email=${email}`;
       console.log(url);
       try {
         const { data } = await axios.get(url, {
@@ -31,14 +31,14 @@ const Myitem = () => {
       }
     };
     item();
-  }, [email, navigate]);
+  }, []);
 
   return (
     <div className="container mx-auto">
       <h1 className="text-white text-center my-5">My Items {myItem.length} </h1>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-        {/* {myItem.length >= 0 &&
-          myItem.map((item) => <Item key={item._id} item={item} />)} */}
+        {myItem.length >= 0 &&
+          myItem.map((item) => <Item key={item._id} item={item} />)}
       </div>
     </div>
   );

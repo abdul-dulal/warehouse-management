@@ -9,7 +9,7 @@ const Inventory = () => {
   const [stock, setStock] = useState();
 
   useEffect(() => {
-    const url = `http://localhost:4000/product/${id}`;
+    const url = `https://vast-forest-98609.herokuapp.com/product/${id}`;
     axios.get(url).then((res) => setSingleProduct(res.data));
   }, [id]);
 
@@ -20,7 +20,7 @@ const Inventory = () => {
     const newQuantity = quantity - 1;
     const updateQuantity = { ...singleProduct, quantity: newQuantity };
     setSingleProduct(updateQuantity);
-    const url = `http://localhost:4000/product/${id}`;
+    const url = `https://vast-forest-98609.herokuapp.com/product/${id}`;
     fetch(url, {
       method: "PUT",
       headers: {

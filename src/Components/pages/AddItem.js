@@ -18,13 +18,15 @@ const AddItem = () => {
       email: user.email,
     };
 
-    axios.post(`http://localhost:4000/additem`, items).then((response) => {
-      const { data } = response;
-      if (data.insertedId) {
-        toast.success("success fully added");
-        event.target.reset();
-      }
-    });
+    axios
+      .post(`https://vast-forest-98609.herokuapp.com/additem`, items)
+      .then((response) => {
+        const { data } = response;
+        if (data.insertedId) {
+          toast.success("success fully added");
+          event.target.reset();
+        }
+      });
   };
 
   return (

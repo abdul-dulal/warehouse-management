@@ -24,7 +24,7 @@ const Stock = () => {
     const updateNumber = { ...singleProduct, number: newNumber };
     console.log(updateNumber.quantity);
     // setStock(updateNumber);
-    const url = `http://localhost:4000/user/${id}`;
+    const url = `https://vast-forest-98609.herokuapp.com/user/${id}`;
     fetch(url, {
       method: "PUT",
       headers: {

@@ -9,7 +9,7 @@ const ManageInventory = () => {
   const handleDelete = (id) => {
     const procssed = window.confirm("are you sure to delete");
     if (procssed) {
-      const url = `http://localhost:4000/delete/${id}`;
+      const url = `https://vast-forest-98609.herokuapp.com/delete/${id}`;
       fetch(url, {
         method: "DELETE",
       })
