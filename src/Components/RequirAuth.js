@@ -7,11 +7,11 @@ import Loading from "./Loading";
 const RequirAuth = ({ children }) => {
   const [user, loading] = useAuthState(auth);
   let location = useLocation();
-  if (!user) {
-    return <Navigate to="/login" state={{ from: location }} replace />;
-  }
   if (loading) {
     return <Loading />;
+  }
+  if (!user) {
+    return <Navigate to="/login" state={{ from: location }} replace />;
   }
   return children;
 };

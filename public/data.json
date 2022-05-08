@@ -4,48 +4,48 @@
     "description": "The sleek and elegant design of our SH-T5100 treadmill combines striking visual appeal, performance and reliability with advanced low impact technology for workout that provides.",
     "img": "https://www.shuafitness.com/wp-content/uploads/2021/09/SH-T5100-Treadmill-for-Home-1.png",
     "price": 230,
-    "quantity": 215,
-    "supplier": "SHUA "
+    "quantity": 20,
+    "supplier": "Viva Fitness"
   },
   {
     "name": "Spinning Bike for Home",
     "description": "SHUA SH-B5961S spinning bike has optimal qualities that make it stand out from the crowd. The steel-made wheel and the elastic belt provide   ",
     "img": "https://www.shuafitness.com/wp-content/uploads/2021/09/SH-B5961S-Spinning-Bike-for-Home-1-458x401.png",
     "price": 300,
-    "quantity": 115,
-    "supplier": "SHUA "
+    "quantity": 15,
+    "supplier": "Pro Tech "
   },
   {
     "name": "Commercial Rower  ",
     "description": "SHUA SH-R598 rower is created to deliver the high performance cardio equipment, offering specifically exercise experience of rowing in the water.",
     "img": "https://www.shuafitness.com/wp-content/uploads/2021/09/SH-B5961S-Spinning-Bike-for-Home-1-458x401.png",
     "price": 300,
-    "quantity": 105,
-    "supplier": "SHUA "
+    "quantity": 10,
+    "supplier": "Forma "
   },
   {
     "name": "Elliptical for Home",
     "description": "SHUA SH-B5101E elliptical represents you the new effective movement. With 25 levels of resistance, all natural but powerful motions of the upper body can be matched and adjusted. The watt modes provide the innovative and exciting exercise, different speed with different resistance, to maximize the training effect while protecting joints from damage. Silent movement, quiet and effective workout, SHUA SH-B5101E is the optimal choice. ",
     "img": "https://www.shuafitness.com/wp-content/uploads/2021/09/SH-B5101E-Elliptical-for-Home-1-768x572.png",
     "price": 320,
-    "quantity": 125,
-    "supplier": "SHUA "
+    "quantity": 25,
+    "supplier": "Body Tone"
   },
   {
     "name": "Commercial Upright Bike",
     "description": "The refine design of SHUA SH-B9100U & SH-B9100UT upright bike ,SH-B9100UT upright bike combines beauty and performance. With a powerful quiet motor, silent movement and quiet workout are available.With customized design, the ergonomics seat can be adjusted in four directions, allowing people with different heights to carry out comfortable and interesting training. ",
     "img": "https://www.shuafitness.com/wp-content/uploads/2021/09/SH-B9100UT-Commercial-Upright-Bike-4.png",
     "price": 320,
-    "quantity": 130,
-    "supplier": "SHUA "
+    "quantity": 13,
+    "supplier": "Fitex "
   },
   {
     "name": "Recumbent Bike",
     "description": "SHUA SH-B6500R recumbent carries out a comfortable and smooth workout. The creative walk-through design gives a stable and durable performance, allow users to easily get on and off the equipment. With the adjustable ergonomics seat design, users with different heights and ages can reach a effective, smooth and low impact workout. And the integrated console provides the most intuitive training experience. ",
     "img": "https://www.shuafitness.com/wp-content/uploads/2021/09/SH-B6500R-Recumbent-Bike-for-Home-1.png",
     "price": 340,
-    "quantity": 124,
-    "supplier": "SHUA "
+    "quantity": 14,
+    "supplier": "Mo Fit "
   },
   {
     "name": "Chest Press",
@@ -53,6 +53,6 @@
     "img": "https://www.shuafitness.com/wp-content/uploads/2021/10/6801-1.png",
     "price": 350,
     "quantity": 50,
-    "supplier": "SHUA "
+    "supplier": "Fitex "
   }
 ]

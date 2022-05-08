@@ -5,6 +5,7 @@ import MiniSlider from "../MiniSlider";
 import Products from "../Products";
 
 import Slider from "../Slider";
+import Stock from "../Stock";
 
 const Home = () => {
   return (

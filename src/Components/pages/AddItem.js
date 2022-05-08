@@ -35,7 +35,7 @@ const AddItem = () => {
       <div className="p-4 max-w-sm bg-[#1F2937]rounded-lg border border-gray-200 shadow-md sm:p-6 lg:p-8 dark:bg-gray-800 dark:border-gray-700">
         <form className="space-y-6" onSubmit={handleAdditem}>
           <h5 className="text-xl font-medium text-[#CBCDD6] dark:text-white">
-            Sign in to our platform
+            Add Product
           </h5>
 
           <div>
