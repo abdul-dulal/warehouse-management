@@ -4,19 +4,7 @@ import { useParams } from "react-router-dom";
 import useSingle from "./Hooks/useSingle";
 
 const Stock = () => {
-  const [stock, setStock] = useState([]);
   const { id } = useParams();
-
-  useEffect(() => {
-    const url = `https://vast-forest-98609.herokuapp.com/product/${id}`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setStock(data));
-  }, []);
-  console.log("hello", stock);
-
-  let { quantity } = stock;
-
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
