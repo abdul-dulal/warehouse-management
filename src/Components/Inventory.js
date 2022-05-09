@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import Loading from "./Loading";
+
 import Stock from "./Stock";
+import useSingle from "./Hooks/useSingle";
 const Inventory = () => {
   const { id } = useParams();
-  const [singleProduct, setSingleProduct] = useState([]);
-  const [stock, setStock] = useState();
+  const [singleProduct, setSingleProduct] = useSingle(id);
 
   useEffect(() => {
     const url = `https://vast-forest-98609.herokuapp.com/product/${id}`;
@@ -59,6 +59,7 @@ const Inventory = () => {
 
               <div className="ml-4 text-xl text-white py-2">
                 {singleProduct.quantity === 0 ? <Stock /> : "Sold"}
+                {/* <Stock /> */}
               </div>
             </div>
           </div>

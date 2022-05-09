@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 const Item = ({ item }) => {
-  console.log(item);
   const navigate = useNavigate();
   const { name, description, img, price, quantity, supplier, _id } = item;
   return (

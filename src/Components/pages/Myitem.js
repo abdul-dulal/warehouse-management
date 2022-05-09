@@ -14,7 +14,6 @@ const Myitem = () => {
   useEffect(() => {
     const item = async () => {
       const url = `https://vast-forest-98609.herokuapp.com/myitem?email=${email}`;
-      console.log(url);
       try {
         const { data } = await axios.get(url, {
           headers: {

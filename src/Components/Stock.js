@@ -1,14 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import useSingle from "./Hooks/useSingle";
 
 const Stock = () => {
+  const [stock, setStock] = useState([]);
   const { id } = useParams();
-  const [singleProduct, setSingleProduct] = useSingle(id);
-  // const [stock, setStock] = useState();
-  // console.log(stock.quantity);
-  let { quantity } = singleProduct;
+
+  useEffect(() => {
+    const url = `https://vast-forest-98609.herokuapp.com/product/${id}`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setStock(data));
+  }, []);
+  console.log("hello", stock);
+
+  let { quantity } = stock;
 
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
@@ -16,14 +23,11 @@ const Stock = () => {
 
   const handleStock = (event) => {
     event.preventDefault();
-
     const number = parseInt(event.target.number?.value);
+    const newNumber = number;
+    const updateNumber = { number: newNumber };
 
-    const newNumber = quantity + number;
-
-    const updateNumber = { ...singleProduct, number: newNumber };
-    console.log(updateNumber.quantity);
-    // setStock(updateNumber);
+    event.target.reset();
     const url = `https://vast-forest-98609.herokuapp.com/user/${id}`;
     fetch(url, {
       method: "PUT",
@@ -32,7 +36,9 @@ const Stock = () => {
       },
       body: JSON.stringify(updateNumber),
     });
+    window.location.reload();
   };
+
   return (
     <div>
       <button onClick={handleShow} className="text-white border-2 px-4 py-2">

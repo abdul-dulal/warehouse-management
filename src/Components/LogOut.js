@@ -1,7 +1,9 @@
 import React from "react";
 import { signOut } from "firebase/auth";
-import auth from "../Firebase.init";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from ".././Firebase.init";
 const LogOut = () => {
+  const [] = useAuthState(auth);
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
     signOut(auth);
