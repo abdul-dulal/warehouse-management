@@ -5,7 +5,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 ## gym-equipment
-# this is warehouse-management webside, user can upload his won product and also do delete product.
+## this is warehouse-management webside, user can upload his won product and also do delete product.
+
+## Live website Link : [https://email-password-auth-c6bbf.web.app/]
 
 # uses technology
 * React js
